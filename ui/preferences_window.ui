@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.12"/>
+  <template class="PreferencesWindow" parent="GtkWindow">
+    <property name="title" translatable="yes">Preferences</property>
+    <!--<property name="default-width">512</property>
+    <property name="default-height">360</property>-->
+    <child type="titlebar">
+      <object class="GtkHeaderBar" id="header">
+        <property name="title" translatable="yes">Preferences</property>
+        <property name="visible">True</property>
+        <property name="show-close-button">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkGrid" id="grid1">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="row_spacing">12</property>
+        <property name="column_spacing">12</property>
+        <property name="border-width">20</property>
+        <child>
+          <object class="GtkFileChooserButton" id="rc_file_chooser">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="action">select-folder</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="rc_info_label">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Recipe Library Folder:</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">0</property>
+          </packing>
+        </child>
+
+        <child>
+          <object class="GtkComboBox" id="locale_chooser">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="locale_label">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Select preferred locale:</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">1</property>
+          </packing>
+        </child>
+
+        <child>
+          <object class="GtkFontButton" id="print_font_chooser">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="font">Fira Sans 11</property>
+            <property name="use_font">True</property>
+            <property name="preview_text">bake 1⁄2 of your pastry in 180°C</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="font_label">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Printing font:</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

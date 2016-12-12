@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Recipe Manager
+Exec=/usr/bin/recipe
+Terminal=false
+Icon=recipe-manager
+Type=Application
+Categories=Cooking;Cousine;Food;Entertainment
+X-Ayatana-Desktop-Shortcuts=NewWindow
+MimeType=text/json;application/json
+Name[en_US]=Recipe Manager

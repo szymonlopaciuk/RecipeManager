@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.12"/>
+  <template class="RecipeWindow" parent="GtkApplicationWindow">
+    <property name="title" translatable="yes">Recipe Manager</property>
+    <property name="default-width">1152</property>
+    <property name="default-height">768</property>
+    <signal name="destroy" handler="on_destroy" swapped="no"/>
+    <child type="titlebar">
+      <object class="GtkHeaderBar" id="header">
+        <property name="title" translatable="yes">Recipe Manager</property>
+        <property name="subtitle" translatable="yes">A recipe</property>
+        <property name="visible">True</property>
+        <property name="show-close-button">True</property>
+        <child>
+          <object class="GtkMenuButton" id="open_recipe_button">
+            <property name="visible">True</property>
+            <property name="tooltip_text" translatable="yes">Save or open a recipe</property>
+            <property name="valign">center</property>
+            <property name="use_popover">True</property>
+            <style>
+              <class name="text-button"/>
+              <class name="image-button"/>
+            </style>
+            <child>
+              <object class="GtkBox" id="open_button_box">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="has_focus">False</property>
+                <property name="is_focus">False</property>
+                <property name="spacing">6</property>
+                <child>
+                  <object class="GtkLabel" id="open_button_name">
+                    <property name="label" translatable="yes">Library</property>
+                    <property name="visible">True</property>
+                    <property name="valign">baseline</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkImage" id="open_button_arrow">
+                    <property name="visible">True</property>
+                    <property name="valign">baseline</property>
+                    <property name="icon_name">pan-down-symbolic</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="pack-type">start</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="print_button">
+            <property name="visible">True</property>
+            <property name="tooltip_text" translatable="yes">Print this recipe</property>
+            <style>
+              <class name="image-button"/>
+            </style>
+            <child>
+              <object class="GtkImage" id="printer-icon">
+                <property name="visible">True</property>
+                <property name="icon-name">printer-symbolic</property>
+                <property name="icon-size">1</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="pack-type">end</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="convert_button">
+            <property name="visible">True</property>
+            <property name="tooltip_text" translatable="yes">Convert units</property>
+            <style>
+              <class name="image-button"/>
+            </style>
+            <child>
+              <object class="GtkImage" id="gears-icon">
+                <property name="visible">True</property>
+                <property name="icon-name">system-run-symbolic</property>
+                <property name="icon-size">1</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="pack-type">end</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="file_manip_box">
+            <property name="visible">True</property>
+            <property name="orientation">horizontal</property>
+            <child>
+              <object class="GtkButton" id="save_button">
+                <property name="visible">True</property>
+                <property name="label">Save</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="rename_button">
+                <property name="visible">True</property>
+                <property name="label">Rename</property>
+              </object>
+            </child>
+            <style>
+              <class name="linked"/>
+            </style>       
+          </object>
+          <packing>
+            <property name="pack-type">end</property>
+          </packing>
+        </child>
+        
+        
+        <child>
+          <object class="GtkBox" id="list_manip_box">
+            <property name="visible">True</property>
+            <property name="orientation">horizontal</property>
+            <child>
+              <object class="GtkButton" id="add_button">
+                <property name="visible">True</property>
+                <property name="tooltip_text" translatable="yes">Add an ingredient</property>
+                <style>
+                  <class name="image-button"/>
+                </style>
+                <child>
+                  <object class="GtkImage" id="list-add-icon">
+                    <property name="visible">True</property>
+                    <property name="icon-name">list-add-symbolic</property>
+                    <property name="icon-size">1</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="del_button">
+                <property name="visible">True</property>
+                <property name="tooltip_text" translatable="yes">Remove selected ingredient</property>
+                <style>
+                  <class name="image-button"/>
+                </style>
+                <child>
+                  <object class="GtkImage" id="list-remove-icon">
+                    <property name="visible">True</property>
+                    <property name="icon-name">list-remove-symbolic</property>
+                    <property name="icon-size">1</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <style>
+              <class name="linked"/>
+            </style>       
+          </object>
+          <packing>
+            <property name="pack-type">start</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkPaned" id="paned">
+        <property name="visible">True</property>
+        <property name="orientation">horizontal</property>
+        <property name="position">440</property>
+        <child>
+          <object class="GtkScrolledWindow" id="scroll1">
+          </object>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow" id="scroll2">
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

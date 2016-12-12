@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/gtk/recipe">
+    <file preprocess="xml-stripblanks">ui/recipe_window.ui</file>
+    <file preprocess="xml-stripblanks">ui/preferences_window.ui</file>
+    <file preprocess="xml-stripblanks">ui/description_view.ui</file>
+    <file preprocess="xml-stripblanks">ui/ingredients_list.ui</file>
+    <file preprocess="xml-stripblanks">ui/app_menu.ui</file>
+  </gresource>
+</gresources>
