@@ -20,6 +20,10 @@ install:
 	cp -f recipe /usr/bin/
 	cp -f desktop/RecipeManager.desktop /usr/share/applications/
 	cp -f desktop/recipe-manager.svg /usr/share/icons/Adwaita/scalable/apps/
+	cp -f recipe-manager-conf.json $(HOME)/.config/
 
 uninstall:
 	rm -f /usr/bin/recipe
+	rm -f /usr/share/applications/RecipeManager.desktop
+	rm -f /usr/share/icons/Adwaita/scalable/apps/recipe-manager.svg
+	rm -f $(HOME)/.config/recipe-manager-conf.json

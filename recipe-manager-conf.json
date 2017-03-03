@@ -1,0 +1,47 @@
+{
+  "library" : "~/Recipes/",
+  "locale" : "en-US",
+  "print_font" : "Fira Sans 11",
+  "locale_list" : {
+    "en-US" : {
+      "name" : "English (US)",
+      "units" : null
+    },
+    "en-GB" : {
+      "name" : "English (UK)",
+      "units" : {
+        "UK cup" : "(C|cup)",
+        "UK pt" : "(pt\\.?|pint)",
+        "UK fl oz" : "(fl\\.?|fluid)( )?(oz\\.?|ounce)"
+      }
+    },
+    "pl-PL" : {
+      "name" : "Polski",
+      "units" : {
+        "intl cup" : "szk(l|lanka|lanki|lanek)?\\.?",
+        "tbsp" : "łyżk(a|i)? ?(stołow(a|ej))?",
+        "tsp" : "łyżecz(ek|ka|ki)?"
+      },
+      "translations" : {
+        "Ingredients" : "Składniki",
+        "Directions" : "Przepis",
+        "Notes" : "Informacje dodatkowe",
+        "Not specified" : "Nie określono",
+        "Appetizer" : "Starter",
+        "Beverage" : "Napój",
+        "Bread" : "Pieczywo",
+        "Dessert" : "Deser",
+        "Main dish" : "Danie główne",
+        "Salad" : "Sałatka",
+        "Side Dish" : "Przystawka",
+        "Snack" : "Przekąska",
+        "Soup or stew" : "Zupa",
+        "Breakfast" : "Śniadanie",
+        "Brunch" : "Drugie śniadanie",
+        "Lunch" : "Obiad",
+        "Dinner" : "Kolacja",
+        "Other" : "Inne"
+      }
+    }
+  }
+}
