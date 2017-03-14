@@ -42,7 +42,7 @@
         {% for node in site.pages %}
           {% if node.categories contains 'sidebar' %}
             {% if page.url != node.url %}
-              <a href="{{ node.url | relative_url }}">{{ node.title }}</a>
+              <a href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a>
             {% else %}
               <span>{{ node.title }}</span>
             {% endif %}

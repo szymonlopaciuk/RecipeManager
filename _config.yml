@@ -4,3 +4,4 @@ show_downloads: true
 theme:
 categories: [ sidebar, gallery ]
 author: Szymon Łopaciuk
+baseurl: /RecipeManager
