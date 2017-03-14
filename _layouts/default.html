@@ -10,6 +10,10 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    {% if page.categories contains 'gallery' %}
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+      {% include gallery_head.html %}
+    {% endif %}
   </head>
   <body>
     <div class="wrapper">
@@ -32,6 +36,20 @@
             <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
           </ul>
         {% endif %}
+
+        <div class="page-list">
+        <strong>Pages:</strong>
+        {% for node in site.pages %}
+          {% if node.categories contains 'sidebar' %}
+            {% if page.url != node.url %}
+              <a href="{{ node.url }}">{{ node.title }}</a>
+            {% else %}
+              <span>{{ node.title }}</span>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        </div>
+
       </header>
       <section>
 
@@ -47,17 +65,8 @@
     </div>
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
 
-
-  {% if site.google_analytics %}
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', '{{ site.google_analytics }}', 'auto');
-        ga('send', 'pageview');
-    </script>
+  {% if page.categories contains 'gallery' %}
+    {% include gallery.html %}
   {% endif %}
   </body>
 </html>

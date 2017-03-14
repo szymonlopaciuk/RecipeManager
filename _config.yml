@@ -1,5 +1,6 @@
 title: Recipe Manager
 description: Recipe Management app for Linux written in Vala/GTK+3.0, supports localisation and smart unit conversions.
 show_downloads: true
-google_analytics:
-theme: 
+theme:
+categories: [ sidebar, gallery ]
+author: Szymon Łopaciuk

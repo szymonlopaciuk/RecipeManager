@@ -2,3 +2,25 @@
 ---
 
 @import "jekyll-theme-minimal";
+
+.page-list
+{
+	padding-top: 15px;
+}
+
+.page-list > strong
+{
+	display: block;
+	margin-bottom: 5px;
+	font-size: 1.1em;
+}
+
+.page-list > a,
+.page-list > span
+{
+	display: list-item;
+	list-style-item: none;
+	list-style-type: bullet;
+	list-style-position: inside;
+	padding-left: auto;
+}
