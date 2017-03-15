@@ -5,3 +5,4 @@ theme:
 categories: [ sidebar, gallery ]
 author: Szymon Łopaciuk
 baseurl: /RecipeManager
+logopath: /assets/img/lasagna.svg
