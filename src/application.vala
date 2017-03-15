@@ -45,6 +45,7 @@ public class RecipeApplication : Gtk.Application
         {
             window = new RecipeWindow(this);
             window.set_last_folder(this.library);
+            window.set_wmclass("Recipe Manager", "Recipe Manager");
             window.show_all();
             window.present();
         }
@@ -81,13 +82,14 @@ public class RecipeApplication : Gtk.Application
 	        dialog.translator_credits = null;
 
 	        dialog.program_name = "Recipe Manager";
-	        dialog.logo_icon_name = "gourmet";
+	        dialog.logo_icon_name = "recipe-manager";
 	        dialog.comments = "The Modern Cookbook";
 	        dialog.copyright = "Copyright © 2015 Szymon Łopaciuk";
 	        dialog.version = "1.0";
 
             dialog.license_type = License.GPL_3_0;
-            dialog.license = " GNU GENERAL PUBLIC LICENSE
+            dialog.license = "" +
+"                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
  Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
@@ -708,8 +710,8 @@ Program, unless a warranty or assumption of liability accompanies a
 copy of the Program in return for a fee.
 ";
 
-	        dialog.website = null;
-	        dialog.website_label = null;
+	        dialog.website = "https://szymciolop.github.io/RecipeManager";
+	        dialog.website_label = "https://szymciolop.github.io/RecipeManager";
 
 	        dialog.response.connect((response_id) => {
 		        if (response_id == Gtk.ResponseType.CANCEL || response_id == Gtk.ResponseType.DELETE_EVENT) {

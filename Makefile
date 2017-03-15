@@ -21,9 +21,11 @@ install:
 	cp -f desktop/RecipeManager.desktop /usr/share/applications/
 	cp -f desktop/recipe-manager.svg /usr/share/icons/hicolor/scalable/apps/
 	cp -f recipe-manager-conf.json $(HOME)/.config/
+	gtk-update-icon-cache /usr/share/icons/hicolor/
 
 uninstall:
 	rm -f /usr/bin/recipe
 	rm -f /usr/share/applications/RecipeManager.desktop
 	rm -f /usr/share/icons/hicolor/scalable/apps/recipe-manager.svg
 	rm -f $(HOME)/.config/recipe-manager-conf.json
+	gtk-update-icon-cache /usr/share/icons/hicolor/
