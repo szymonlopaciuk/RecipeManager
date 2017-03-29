@@ -76,11 +76,12 @@ public class PreferenceStorage
 
     public static string translate_to_locale(string locale, string word)
     {
-        string? translation = settings.get_object_member("locale_list")
-            .get_object_member(locale)
-            .get_object_member("translations")
-            .get_string_member(word);
-        if (translation == null) return word;
-        else return translation;
+        if (settings.has_member("locale_list") == false) return word;
+        Json.Object? locale_dict = settings.get_object_member("locale_list").get_object_member(locale);
+        if (settings.has_member("translations") == false || locale_dict == null) return word;
+        Json.Object? translations = locale_dict.get_object_member("translations");
+        if (settings.has_member(word) == false || translations == null) return word;
+        string? translation = translations.get_string_member(word);
+        return translation;
     }
 }

@@ -509,6 +509,7 @@ public class Converter
         Json.Object locales = PreferenceStorage.settings.get_object_member("locale_list");
         Json.Object locale_opt = locales.get_object_member(preferred_locale)
             .get_object_member("units");
+        if (locale_opt == null) return null;
 
         UnitSpecification? suitable_locale_unit = null;
         locale_opt.foreach_member((object, member_name, member_node) => {
