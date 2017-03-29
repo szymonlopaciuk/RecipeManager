@@ -53,7 +53,7 @@ Just copy the `recipe-manager-conf.json` file to `~/.config/` directory:
 
     cp recipe-manager-conf.json ~/.config/
 
-If you want to use the nice, new Gnome theme with Gtk (and you do) you should also create a `settings.ini` file for Gtk.
+If you want to use the nice, new Gnome theme with GTK (and you do) you should also create a `settings.ini` file for Gtk.
 
     nano ~/.config/gtk-3.0/settings.ini
 
@@ -138,7 +138,7 @@ however I didn't need to.
 ### 4. Install dylibs (even more optional)
 
 Currently `recipe` is linked against libraries installed on your system, which makes it not portable,
-i.e. I will not work if you just copy it to a different Mac. In order to make the app portable you will need
+i.e. it will not work if you just copy it to a different Mac. In order to make the app portable you will need
 to copy the required libraries to `MacOS` and modify the executable file to use them.
 
 Firstly, let's change the working directory to `MacOS`:
