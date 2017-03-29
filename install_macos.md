@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Install on macOS
+date_modified: 2017-03-29 21:59
 categories: [ sidebar, gallery ]
 ---
 

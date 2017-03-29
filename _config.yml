@@ -6,5 +6,3 @@ categories: [ sidebar, gallery ]
 author: Szymon Łopaciuk
 baseurl: /RecipeManager
 logopath: /assets/img/lasagna.svg
-gems:
-  - jekyll-last-modified-at
