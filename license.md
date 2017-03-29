@@ -26,7 +26,7 @@ categories: [ sidebar ]
 {: .no_toc}
 
 **Recipe Manager: Cookbook app for Linux**  
-Copyright &copy; 2016 Szymon Łopaciuk
+Copyright &copy; 2016 [Szymon Łopaciuk &lt;szymonlopaciuk@protonmail.ch&gt;](mailto:Szymon%20%C5%81opaciuk%20%3Cszymonlopaciuk%40protonmail.ch%3E)
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

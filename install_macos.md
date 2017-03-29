@@ -7,7 +7,7 @@ categories: [ sidebar, gallery ]
 
 # Installation on macOS
 
-## Installing dependencies
+## 1. Installing dependencies
 
 You can install dependencies in whichever method you prefer.
 My personal favourite is Homebrew, it makes it easy to install packages on macOS.
@@ -43,7 +43,7 @@ In order to be able to build the app, you will also need Vala toolchain:
 
     brew install vala
 
-## Compile
+## 2. Building
 
 In order to compile the application just execute `make`, the same way you would do it on Linux.
 After installing all the dependencies the process should finish without errors.
@@ -68,22 +68,23 @@ Paste the following contents to the file:
 These were all the required steps for me. However you you do encounter some problems,
 see [this](https://sshader.wordpress.com/2013/12/18/installing-gtk3-with-the-quartz-backend-from-source/) post, as it helped me figure some things out. (Thank you, random stranger on the Internet!)
 
-## Make an App bundle (optional)
+## 3. Make an App bundle (optional)
 
 This step is absolutely not required, however if you're anything like me,
 you like to have a nice app bundle, instead of a random executable file.
-If you run into problems, [this guy on StackOverflow](http://stackoverflow.com/a/3251285/7471530)
+If you run into problems while following this guide,
+[this guy on StackOverflow](http://stackoverflow.com/a/3251285/7471530)
 has some more advice.
 
-### 1. Generate directory structure
+### 3.1. Generate directory structure
 
 A macOS app bundle is nothing else, than a directory with a special structure, like this:
 
-    RecipeManager.app/
-     ↳ Contents/
-        ↳ Info.plist
-          MacOS/
-          Resources/
+    ▼  📂 RecipeManager.app
+       ▼  📂 Contents
+             📄 Info.plist
+          ▶︎  📁 MacOS
+          ▶︎  📁 Resources
 
 Create these directories/files, I'm going to assume `RecipeManager.app` is in the top-level directory of the repo.
 In `Info.plist` paste:
@@ -117,25 +118,25 @@ In `Info.plist` paste:
       </dict>
     </plist>
 
-### 2. Install the executable
+### 3.2. Install the executable
 
     mv recipe RecipeManager.app/Contents/MacOS/recipe
 
-### 3. Create an icon
+### 3.3. Create an icon
 
 Icons on macOS are in special ICNS format, so you will need to convert it from SVG.
-I did it by converting `desktop/recipe-manager.svg` to png using AI (you could probably use Preview.app),
-and then used [https://iconverticons.com/online/](https://iconverticons.com/online/) tool to get ICNS file.
-If you get some better ideas on how to do it let me know!
+I did it by converting `desktop/recipe-manager.svg` to png using Adobe Illustrator (you could probably use Preview.app),
+and then used [this online tool](https://iconverticons.com/online/) to get ICNS file.
+If you get a better idea on how to do this let me know!
 
-Assuming ICNS file is called `recipe.icns` execute the following to install the icon:
+Assuming ICNS file is called `recipe.icns`, you can execute the following to install the icon:
 
     cp recipe.icns RecipeManager.app/Contents/Resources/recipe.icns
 
 To refresh the icon in Finder, run `touch RecipeManager.app`. Some people also need to touch `Info.plist`,
 however I didn't need to.
 
-### 4. Install dylibs (even more optional)
+### 3.4. Install dylibs (even more optional)
 
 Currently `recipe` is linked against libraries installed on your system, which makes it not portable,
 i.e. it will not work if you just copy it to a different Mac. In order to make the app portable you will need
@@ -158,16 +159,20 @@ When all the libraries are copied, you can modify the executable file. For each 
 
     install_name_tool -change /path/to/original/library.dylib @executable_path/library.dylib recipe
 
-## Et voilà!
+_(Instead of going through the aforementioned steps manually you can run this command, if you're a fan of esoteric one-liners. However you probably shouldn't if you don't know what's going on in there:)_
+
+    otool -L recipe | grep -vE '(/usr/lib)|(/System/Library)' | egrep '^\t(.*)\/(.*)\ \(.*\)$' | sed -E 's/    (.*)\/(.*)\ \(.*\)/cp \1\/\2 \2 ; install_name_tool -change \1\/\2 @executable_path\/\2 recipe/g' | sh
+
+## _Et voilà!_
 
 The process is now finished. If you completed all the steps, you should now have a working
 copy of Recipe Manager on your Mac, nicely packed as a native app bundle.
 If you feel like at any point I made a mistake, or you would like me to clear anything up,
 don't hesitate to drop me an email. Same goes for if you have any suggestions:
-[szymonlopaciuk@protonmail.ch](szymonlopaciuk@protonmail.ch).
+[szymonlopaciuk@protonmail.ch](mailto:Szymon%20%C5%81opaciuk%20%3Cszymonlopaciuk%40protonmail.ch%3E).
 
-## Too tedious?
+## _Does it really have to be so complicated?_
 
-You can just grab a binary from [here]({{ site.baseurl }}/download/RecipeManager.zip).
-However I cannot guarantee that this file will always be up to date, and working for you.
-Feel free to [get in touch](szymonlopaciuk@protonmail.ch) in case you have any issues.
+You can just grab a binary [by clicking here]({{ site.baseurl }}/download/RecipeManager.zip).
+However if you would like to stay up-to-date, building from source is your best bet.
+Feel free to [get in touch](mailto:Szymon%20%C5%81opaciuk%20%3Cszymonlopaciuk%40protonmail.ch%3E) in case you have any issues.
