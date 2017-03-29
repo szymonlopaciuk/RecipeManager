@@ -509,27 +509,29 @@ public class Converter
         Json.Object locales = PreferenceStorage.settings.get_object_member("locale_list");
         Json.Object locale_opt = locales.get_object_member(preferred_locale)
             .get_object_member("units");
-        if (locale_opt == null) return null;
 
         UnitSpecification? suitable_locale_unit = null;
-        locale_opt.foreach_member((object, member_name, member_node) => {
-            var regex = new Regex(member_node.get_string());
-            if (regex.match(in_unit))
-            {
-                suitable_locale_unit = units.get(member_name);
-            }
-        });
+        if (locale_opt != null)
+        {
+            locale_opt.foreach_member((object, member_name, member_node) => {
+                var regex = new Regex(member_node.get_string());
+                if (regex.match(in_unit))
+                {
+                    suitable_locale_unit = units.get(member_name);
+                }
+            });
+        }
         if (suitable_locale_unit != null) return suitable_locale_unit;
 
         foreach (string name in units.get_keys())
         {
             UnitSpecification unit = units.get(name);
-		    if (unit.pattern.match(in_unit))
-		    {
-		        return unit;
-		    }
-	    }
-	    return null;
+            if (unit.pattern.match(in_unit))
+            {
+                return unit;
+            }
+        }
+        return null;
     }
 
     private double arithm_conv(
@@ -550,19 +552,19 @@ public class Converter
 
         UnitSpecification[] prospective_destinations = {};
 
-	    foreach (string name in units.get_keys())
+        foreach (string name in units.get_keys())
         {
             UnitSpecification current_unit = units.get(name);
-		    if(current_unit.type == unit_original.type && system.is_in(current_unit.systems))
-		    {
-		        prospective_destinations += current_unit;
-		    }
-	    }
+            if(current_unit.type == unit_original.type && system.is_in(current_unit.systems))
+            {
+                prospective_destinations += current_unit;
+            }
+        }
 
-	    var unit_destination = choose_best_unit(amount, unit_original, prospective_destinations);
-	    out_unit = unit_destination.name;
-	    can_be_frac = unit_destination.can_be_frac;
-	    prec = unit_destination.precision;
+        var unit_destination = choose_best_unit(amount, unit_original, prospective_destinations);
+        out_unit = unit_destination.name;
+        can_be_frac = unit_destination.can_be_frac;
+        prec = unit_destination.precision;
         return unit_destination.to(unit_original.from(amount));
     }
 
