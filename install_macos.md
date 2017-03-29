@@ -11,7 +11,7 @@ categories: [ sidebar, gallery ]
 
 You can install dependencies in whichever method you prefer.
 My personal favourite is Homebrew, it makes it easy to install packages on macOS.
-You can go to [Homebrew's](https://brew.sh) website to find out more, or just run the following command to install it.
+You can go to [Homebrew's website](https://brew.sh) to find out more, or just run the following command to install it.
 
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -80,8 +80,8 @@ has some more advice.
 A macOS app bundle is nothing else, than a directory with a special structure, like this:
 
     RecipeManager.app/
-      Contents/
-          Info.plist
+     ↳ Contents/
+        ↳ Info.plist
           MacOS/
           Resources/
 
