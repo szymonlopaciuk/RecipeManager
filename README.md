@@ -1,6 +1,6 @@
 # Recipe Manager
 
-**See project website at [https://szymonlopaciuk.github.io/RecipeManager/](https://szymciolop.github.io/RecipeManager/)**
+**See project website at [https://szymonlopaciuk.github.io/RecipeManager/](https://szymonlopaciuk.github.io/RecipeManager/)**
 
 - This is a recipe manager program, written in Gtk+ and Vala.
 - Supports smart unit conversion, will automatically find the most reasonable conversion, given a measuring system, e.g. in customary metric 8 tbsp ≈ ½ cup
