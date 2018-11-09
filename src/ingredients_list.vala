@@ -98,7 +98,7 @@ public class IngredientsList : TreeView
                 r.delete_ingredient(index);
 
                 model.get_iter(out it, p);
-                listmodel.remove(it);
+                listmodel.remove(ref it);
             }
         }
     }
