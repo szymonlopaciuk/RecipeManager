@@ -21,10 +21,17 @@ public class RecipeApplication : Gtk.Application
             assert(settings != null);
 
             this.library = settings.get_string_member("library");
+            if (this.library.has_prefix("~/")) {
+                this.library = GLib.Environment.get_home_dir() + this.library.substring(1);
+            }
             if (this.library == null)
             {
                 this.library = GLib.Environment.get_home_dir() + "/Recipes/";
                 settings.set_string_member("library", this.library);
+            }
+            if (!GLib.FileUtils.test(this.library, GLib.FileTest.EXISTS)) {
+                var library_dir = GLib.File.new_for_path(this.library);
+                library_dir.make_directory();
             }
 
             this.locale = settings.get_string_member("locale");
